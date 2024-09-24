@@ -1,0 +1,29 @@
+name: CLGPlugin
+version: 1.2
+main: clgplugin.CLGPlugin
+api-version: '1.20'
+commands:
+  test1:
+    description: Tests command usage.
+    usage: /<command>
+  test2:
+    description: Tests command usage.
+    usage: /<command>
+  test3:
+    description: Tests command usage.
+    usage: /<command>
+  kit:
+    description: Tests command usage.
+    usage: /<command>
+  heal:
+    description: Tests command usage.
+    usage: /<command>
+  fly:
+    description: Tests command usage.
+    usage: /<command>
+  sethome:
+    description: Tests command usage.
+    usage: /<command>
+  home:
+    description: Tests command usage.
+    usage: /<command>

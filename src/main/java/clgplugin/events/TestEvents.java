@@ -1,11 +1,13 @@
 package clgplugin.events;
 
+import clgplugin.events.annotations.EventAlias;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+@EventAlias(eventAlias = "onPlayerJoin")
 public class TestEvents implements Listener {
 
     @EventHandler

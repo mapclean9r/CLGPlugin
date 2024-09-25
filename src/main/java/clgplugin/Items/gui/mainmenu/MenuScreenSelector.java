@@ -1,12 +1,14 @@
 package clgplugin.Items.gui.mainmenu;
 
 import clgplugin.Items.gui.slayermenu.SlayerScreen;
+import clgplugin.events.annotations.EventAlias;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
+@EventAlias(eventAlias = "menuScreenSelector")
 public class MenuScreenSelector implements Listener {
 
     @EventHandler

@@ -5,6 +5,7 @@ import clgplugin.Items.ModItem;
 import clgplugin.Items.annotations.ItemName;
 import clgplugin.Items.createItem.EnchantmentSub;
 import clgplugin.Items.createItem.ItemCreator;
+import clgplugin.events.annotations.EventAlias;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@EventAlias(eventAlias = "Menu")
 @ItemName(itemname = "menu")
 public class Menu extends ModItem implements Listener{
     private ItemStack itemStack;

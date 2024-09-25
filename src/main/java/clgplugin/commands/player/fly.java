@@ -20,7 +20,7 @@ public class fly extends ModCommand {
         try {
             player.setFlySpeed(Math.min(player.getFlySpeed() * 3, 1.0f));
         } catch (IllegalArgumentException e) {
-            player.sendMessage("§cFly speed adjustment failed. Speed value out of bounds.");
+            player.sendMessage("§cFly- .Speed value out of bounds.");
         }
     }
 }

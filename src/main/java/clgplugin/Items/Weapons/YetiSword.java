@@ -6,6 +6,7 @@ import clgplugin.Items.ModItem;
 import clgplugin.Items.annotations.ItemName;
 import clgplugin.Items.createItem.EnchantmentSub;
 import clgplugin.Items.createItem.ItemCreator;
+import clgplugin.events.annotations.EventAlias;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@EventAlias(eventAlias = "YetiSword")
 @ItemName(itemname = "yetisword")
 public class YetiSword extends ModItem implements Listener {
     private ItemStack itemStack;

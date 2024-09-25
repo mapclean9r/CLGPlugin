@@ -8,13 +8,17 @@ import clgplugin.Items.gui.slayermenu.SlayerScreenSelector;
 import clgplugin.Items.Weapons.YetiSword;
 import clgplugin.events.TestEvents;
 import clgplugin.handler.CommandHandler;
+import clgplugin.handler.EventHandler;
 import clgplugin.handler.ItemHandler;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class CLGPlugin extends JavaPlugin {
 
     private CommandHandler commandHandler;
+    private EventHandler eventHandler;
 
     @Override
     public void onEnable() {
@@ -29,11 +33,8 @@ public class CLGPlugin extends JavaPlugin {
         ItemManager.initItems();
 
         //Events
-        getServer().getPluginManager().registerEvents(new TestEvents(), this);
-        getServer().getPluginManager().registerEvents(new Menu(), this);
-        getServer().getPluginManager().registerEvents(new YetiSword(), this);
-        getServer().getPluginManager().registerEvents(new MenuScreenSelector(), this);
-        getServer().getPluginManager().registerEvents(new SlayerScreenSelector(), this);
+
+        registerEvents();
     }
 
     @Override
@@ -44,6 +45,14 @@ public class CLGPlugin extends JavaPlugin {
 
     public void RegisterCommands(){
         this.commandHandler = new CommandHandler(this);
+    }
+
+    public void registerEvents() {
+        this.eventHandler = new EventHandler(this);
+    }
+
+    public EventHandler getEventHandler() {
+        return eventHandler;
     }
 
     public CommandHandler getCommandHandler() {

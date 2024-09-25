@@ -17,15 +17,15 @@ import java.util.Set;
 
 public class CommandHandler implements CommandExecutor {
 
-    private List<Class<?>> commandClasses = new ArrayList<>();
-    private CLGPlugin plugin;
+    private final List<Class<?>> commandClasses = new ArrayList<>();
+    private final CLGPlugin plugin;
 
     public CommandHandler(CLGPlugin clgPlugin){
         plugin = clgPlugin;
         registerCommands();
     }
 
-    public void registerCommands(){
+    private void registerCommands(){
         Reflections reflections = new Reflections("clgplugin.commands");
         Set<Class<?>> classes = reflections.getTypesAnnotatedWith(CommandAlias.class);
         for (Class<?> clazz : classes){

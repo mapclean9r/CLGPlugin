@@ -2,7 +2,7 @@ package clgplugin.Items;
 
 import org.bukkit.inventory.ItemStack;
 
-public class ModItem {
+public abstract class ModItem {
     private ItemStack itemStack;
 
     public ModItem(){}

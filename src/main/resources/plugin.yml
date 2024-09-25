@@ -21,9 +21,6 @@ commands:
   fly:
     description: Tests command usage.
     usage: /<command>
-  sethome:
-    description: Tests command usage.
-    usage: /<command>
-  home:
+  spawnrev:
     description: Tests command usage.
     usage: /<command>

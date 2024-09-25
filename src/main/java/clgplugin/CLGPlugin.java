@@ -2,18 +2,12 @@ package clgplugin;
 
 
 import clgplugin.Items.ItemManager;
-import clgplugin.Items.gui.mainmenu.Menu;
-import clgplugin.Items.gui.mainmenu.MenuScreenSelector;
-import clgplugin.Items.gui.slayermenu.SlayerScreenSelector;
-import clgplugin.Items.Weapons.YetiSword;
-import clgplugin.events.TestEvents;
 import clgplugin.handler.CommandHandler;
 import clgplugin.handler.EventHandler;
-import clgplugin.handler.ItemHandler;
+import clgplugin.slayer.bosses.customZomb;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.lang.reflect.InvocationTargetException;
 
 public class CLGPlugin extends JavaPlugin {
 
@@ -57,5 +51,13 @@ public class CLGPlugin extends JavaPlugin {
 
     public CommandHandler getCommandHandler() {
         return commandHandler;
+    }
+    public void spawnCustomBoss(Location location) {
+        customZomb boss = new customZomb(location); // Pass the plugin instance
+        boss.spawn(); // Call the boss's spawn method
+    }
+
+    public static CLGPlugin getPlugin(){
+        return CLGPlugin.getPlugin(CLGPlugin.class);
     }
 }

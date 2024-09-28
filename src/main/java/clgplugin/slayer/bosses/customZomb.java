@@ -1,10 +1,13 @@
 package clgplugin.slayer.bosses;
 
 import clgplugin.CLGPlugin;
+import clgplugin.Items.createItem.HeadLookup;
 import clgplugin.Items.createItem.ItemBuilder;
 import clgplugin.slayer.SlayerBoss;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.SkullType;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Zombie;
 import org.bukkit.inventory.ItemStack;
@@ -17,14 +20,19 @@ public class customZomb extends SlayerBoss {
 
     public customZomb(Location location) {
         this.bossEntity = (Zombie) Objects.requireNonNull(location.getWorld()).spawnEntity(location, EntityType.ZOMBIE);
-        this.bossEntity.setCustomName("§cAtoned");
+        this.bossEntity.setCustomName("§cMega dude bro");
         this.bossEntity.setCustomNameVisible(true);
         this.bossEntity.setHealth(20);
-        this.bossEntity.getEquipment().setHelmet(new ItemBuilder(Material.WITHER_SKELETON_SKULL).addEnchantGlint().getItem());
-        this.bossEntity.getEquipment().setChestplate(new ItemBuilder(Material.DIAMOND_CHESTPLATE).addEnchantGlint().getItem());
-        this.bossEntity.getEquipment().setLeggings(new ItemBuilder(Material.DIAMOND_LEGGINGS).addEnchantGlint().getItem());
-        this.bossEntity.getEquipment().setBoots(new ItemBuilder(Material.DIAMOND_BOOTS).addEnchantGlint().getItem());
-        this.bossEntity.getEquipment().setItemInMainHand(new ItemStack(Material.NETHERITE_SWORD));
+
+
+        ItemStack zombieHelmet = new ItemStack(Material.PLAYER_HEAD, 1, (byte) SkullType.PLAYER.ordinal());
+        zombieHelmet = HeadLookup.idToSkull(zombieHelmet, "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmE2OGM2ZDcyYzhkNzA0ZWNmNDczOWMzZWY5MDgyMTY3ZjBhZTQ2MWQ0ZTdmN2I5MDlhYjRmNjE1YTgxM2ExNiJ9fX0=");
+
+        bossEntity.getEquipment().setHelmet(zombieHelmet);
+        this.bossEntity.getEquipment().setChestplate(new ItemBuilder(Material.NETHERITE_CHESTPLATE).addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4).getItem());
+        this.bossEntity.getEquipment().setLeggings(new ItemBuilder(Material.NETHERITE_LEGGINGS).addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4).getItem());
+        this.bossEntity.getEquipment().setBoots(new ItemBuilder(Material.NETHERITE_BOOTS).addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4).getItem());
+        this.bossEntity.getEquipment().setItemInMainHand(new ItemBuilder(Material.NETHERITE_AXE).getItem());
     }
 
     public void spawn() {
@@ -35,6 +43,4 @@ public class customZomb extends SlayerBoss {
     public Zombie getBossEntity() {
         return bossEntity;
     }
-
-    // You can add more boss-related logic here, such as custom attacks, phases, etc.
 }

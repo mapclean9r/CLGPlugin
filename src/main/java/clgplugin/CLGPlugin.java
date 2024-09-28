@@ -53,8 +53,8 @@ public class CLGPlugin extends JavaPlugin {
         return commandHandler;
     }
     public void spawnCustomBoss(Location location) {
-        customZomb boss = new customZomb(location); // Pass the plugin instance
-        boss.spawn(); // Call the boss's spawn method
+        customZomb boss = new customZomb(location);
+        boss.spawn();
     }
 
     public static CLGPlugin getPlugin(){

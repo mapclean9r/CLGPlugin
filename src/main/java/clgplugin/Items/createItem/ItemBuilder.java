@@ -22,7 +22,7 @@ public class ItemBuilder {
         meta = item.getItemMeta();
     }
 
-    public ItemBuilder addEnchantGlint(){
+    public ItemBuilder addGlint(){
         meta.addEnchant(Enchantment.LUCK, 1, false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
@@ -36,7 +36,32 @@ public class ItemBuilder {
         return this;
     }
 
+    public ItemBuilder addEnchantment(Enchantment enchantment, int level){
+        meta.addEnchant(enchantment, level, true);
+        item.setItemMeta(meta);
+        return this;
+    }
+
+    public ItemBuilder addItemFlag(ItemFlag itemFlag) {
+        meta.addItemFlags(itemFlag);
+        item.setItemMeta(meta);
+        return this;
+    }
+
+    public ItemBuilder isUnbreakable(){
+        meta.setUnbreakable(true);
+        item.setItemMeta(meta);
+        return this;
+    }
+
+    public ItemBuilder setSkullID(String id) {
+        this.item = HeadLookup.idToSkull(item, id);
+
+        return this;
+    }
+
     public ItemStack getItem() {
         return item;
     }
 }
+
